@@ -1,0 +1,6 @@
+{
+  "name": "Mars Rover Mission",
+  "description": "An interplanetary scientific Mars rover simulator featuring a 3D physics-governed cinematic EDL introduction, multi-biome exploration, and APK-ready mission packaging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
