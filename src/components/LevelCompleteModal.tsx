@@ -62,7 +62,11 @@ export const LevelCompleteModal: React.FC<LevelCompleteModalProps> = ({
           onClick={onProceed}
           className="w-full py-3.5 rounded-xl font-orbitron font-bold text-sm bg-gradient-to-r from-[#2ECC71] to-[#4DD0E1] text-black hover:opacity-90 transition-all flex items-center justify-center space-x-2 shadow-lg cursor-pointer"
         >
-          <span>{levelNum < 5 ? `PROCEED TO BIOME ${levelNum + 1}` : 'FINALIZE MARS COLONIZATION'}</span>
+          <span>
+            {levelNum < 5
+              ? `PROCEED TO BIOME ${levelNum + 1}`
+              : 'WATCH EPILOGUE: 10 YEARS LATER (HUMANS POPULATING EARTH)'}
+          </span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

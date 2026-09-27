@@ -1,16 +1,34 @@
 import React, { useEffect, useRef } from 'react';
-import { Play, Rocket, Microscope, Palette, Smartphone, Volume2, VolumeX, Mic, MicOff, Download, Film } from 'lucide-react';
-import { usePWAInstall } from '../hooks/usePWAInstall';
+import {
+  Play,
+  Rocket,
+  Microscope,
+  Palette,
+  Volume2,
+  VolumeX,
+  Mic,
+  MicOff,
+  Video,
+  User,
+  Coins,
+  Users,
+  Compass,
+} from 'lucide-react';
 
 interface TitleScreenProps {
   hasSaveData: boolean;
   saveSummaryText: string;
+  activePilotName?: string;
+  activePilotCoins?: number;
+  activePilotPointsSpent?: number;
+  activePilotTierBadge?: string;
+  onOpenCharacterModal?: () => void;
   onResume: () => void;
   onNewGame: () => void;
-  onWatchCinematic: () => void;
+  onStartFreeRoam?: () => void;
+  onWatchStoryVideo: () => void;
   onOpenPhysics: () => void;
   onOpenGarage: () => void;
-  onOpenApkModal: () => void;
   audioEnabled: boolean;
   setAudioEnabled: (val: boolean) => void;
   voiceEnabled: boolean;
@@ -20,19 +38,23 @@ interface TitleScreenProps {
 export const TitleScreen: React.FC<TitleScreenProps> = ({
   hasSaveData,
   saveSummaryText,
+  activePilotName = 'Explorer',
+  activePilotCoins = 0,
+  activePilotPointsSpent = 0,
+  activePilotTierBadge = '⚪ CADET RECON',
+  onOpenCharacterModal,
   onResume,
   onNewGame,
-  onWatchCinematic,
+  onStartFreeRoam,
+  onWatchStoryVideo,
   onOpenPhysics,
   onOpenGarage,
-  onOpenApkModal,
   audioEnabled,
   setAudioEnabled,
   voiceEnabled,
   setVoiceEnabled,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const { isInstallable, isInstalled, install } = usePWAInstall();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -152,8 +174,49 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           </p>
         </div>
 
+        {/* Active Commander Profile Bar */}
+        <div className="max-w-md mx-auto p-3.5 rounded-2xl bg-black/70 border border-[#4DD0E1]/50 flex items-center justify-between shadow-2xl backdrop-blur-md">
+          <div className="flex items-center space-x-3 text-left">
+            <div className="w-10 h-10 rounded-xl bg-[#4DD0E1]/20 border border-[#4DD0E1]/40 flex items-center justify-center text-[#4DD0E1] flex-shrink-0">
+              <User className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="text-[10px] text-white/50 font-orbitron uppercase">COMMANDER:</span>
+                <span className="font-orbitron font-black text-sm text-[#4DD0E1]">
+                  {activePilotName.toUpperCase()}
+                </span>
+                <span className="text-[9px] px-1.5 py-0.2 rounded bg-white/10 text-white/90 font-orbitron font-bold border border-white/20">
+                  {activePilotTierBadge}
+                </span>
+              </div>
+              <div className="flex items-center space-x-3 text-xs font-mono mt-0.5">
+                <span className="flex items-center space-x-1 text-[#F1C40F]">
+                  <Coins className="w-3.5 h-3.5" />
+                  <strong>{activePilotCoins.toLocaleString()} Pts</strong>
+                </span>
+                <span className="text-white/40">•</span>
+                <span className="text-white/60">
+                  Spent: <strong className="text-[#FF9800]">{activePilotPointsSpent.toLocaleString()}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {onOpenCharacterModal && (
+            <button
+              onClick={onOpenCharacterModal}
+              className="px-3 py-1.5 rounded-lg bg-[#4DD0E1]/15 hover:bg-[#4DD0E1]/30 border border-[#4DD0E1]/50 text-[#4DD0E1] font-orbitron font-bold text-xs flex items-center space-x-1 cursor-pointer transition-all hover:scale-105 flex-shrink-0"
+              title="Switch or register another player"
+            >
+              <Users className="w-3.5 h-3.5" />
+              <span>SWITCH PILOT</span>
+            </button>
+          )}
+        </div>
+
         {/* Buttons */}
-        <div className="pt-2 max-w-md mx-auto space-y-2.5">
+        <div className="pt-1 max-w-md mx-auto space-y-2.5">
           {hasSaveData ? (
             <button
               onClick={onResume}
@@ -169,41 +232,40 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
             className="w-full glass-panel glass-panel-interactive py-3 px-6 rounded-xl font-orbitron font-black text-sm text-white bg-gradient-to-r from-[#E67E22] to-[#FF5722] hover:from-[#FF5722] hover:to-[#9E2A1B] transition-all shadow-xl flex items-center justify-center space-x-2 cursor-pointer"
           >
             <Rocket className="w-5 h-5" />
-            <span>{hasSaveData ? 'START NEW MISSION' : 'START EXPEDITION'}</span>
+            <div className="flex flex-col items-center">
+              <span>{hasSaveData ? 'START NEW EXPEDITION' : 'START EXPEDITION'}</span>
+              {hasSaveData && (
+                <span className="text-[10px] font-mono text-[#F1C40F] tracking-normal font-normal">
+                  (KEEPS {activePilotCoins.toLocaleString()} COINS & ALL GARAGE UNLOCKS)
+                </span>
+              )}
+            </div>
           </button>
 
-          {/* 3D Cinematic Introduction Video Button */}
+          {/* Free Roam Exploration Mode Button */}
+          {onStartFreeRoam && (
+            <button
+              onClick={onStartFreeRoam}
+              className="w-full glass-panel glass-panel-interactive py-3 px-4 rounded-xl font-orbitron font-bold text-xs text-amber-300 border border-amber-400/60 bg-gradient-to-r from-amber-950/60 via-black/80 to-amber-950/40 hover:brightness-125 transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-[0_0_20px_rgba(241,196,15,0.25)]"
+            >
+              <Compass className="w-4 h-4 text-amber-400" />
+              <span>FREE ROAM EXPLORATION MODE (SURVEY MARS)</span>
+            </button>
+          )}
+
+          {/* Watch Story Video Button */}
           <button
-            onClick={onWatchCinematic}
-            className="w-full glass-panel glass-panel-interactive py-2.5 px-4 rounded-xl font-orbitron font-bold text-xs text-[#00E5FF] border border-[#00E5FF]/40 bg-[#00E5FF]/10 hover:bg-[#00E5FF]/20 transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg"
+            onClick={onWatchStoryVideo}
+            className="w-full glass-panel glass-panel-interactive py-2.5 px-4 rounded-xl font-orbitron font-bold text-xs text-[#4DD0E1] border border-[#4DD0E1]/40 bg-[#4DD0E1]/10 hover:bg-[#4DD0E1]/20 transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg"
           >
-            <Film className="w-4 h-4 text-[#00E5FF] animate-pulse" />
-            <span>WATCH 3D CINEMATIC INTRO (EDL PHYSICS)</span>
+            <Video className="w-4 h-4 text-[#4DD0E1]" />
+            <span>WATCH MISSION STORY VIDEO</span>
           </button>
 
           {hasSaveData && (
             <div className="text-[11px] font-orbitron font-semibold text-[#4DD0E1] bg-[#080F1E]/80 px-3 py-1.5 rounded-lg border border-[#4DD0E1]/30">
               SAVED MISSION: <span className="text-white">{saveSummaryText}</span>
             </div>
-          )}
-
-          {/* Direct Install APK Button */}
-          {isInstallable && !isInstalled ? (
-            <button
-              onClick={install}
-              className="w-full py-2.5 px-4 rounded-xl font-orbitron font-bold text-xs bg-[#2ECC71] text-black hover:bg-[#4DD0E1] transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg animate-pulse"
-            >
-              <Smartphone className="w-4 h-4" />
-              <span>INSTALL APK ON THIS ANDROID DEVICE</span>
-            </button>
-          ) : (
-            <button
-              onClick={onOpenApkModal}
-              className="w-full py-2.5 px-4 rounded-xl font-orbitron font-bold text-xs glass-panel text-[#4DD0E1] border border-[#4DD0E1]/50 hover:bg-[#4DD0E1]/15 transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-md"
-            >
-              <Download className="w-4 h-4" />
-              <span>📲 ANDROID APK / INSTALLATION HUB</span>
-            </button>
           )}
 
           <div className="grid grid-cols-2 gap-2.5 pt-1">

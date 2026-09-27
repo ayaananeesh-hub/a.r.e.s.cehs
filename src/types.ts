@@ -3,6 +3,9 @@ export type BiomeKey = 'basalt' | 'dunes' | 'ice' | 'volcanic' | 'lava' | 'summi
 export interface BiomeInfo {
   drag: number;
   accelMult: number;
+  maxSpeed?: number;
+  turnRate?: number;
+  tractionDesc?: string;
   color: string;
   name: string;
 }
@@ -29,17 +32,45 @@ export interface RoverState {
   vy: number;
   angle: number;
   speed: number;
+  health: number;
+  maxHealth: number;
   battery: number;
   solarEff: number;
   dust: number;
+  coins?: number;
+  pointsSpent?: number;
+  totalPointsEarned?: number;
+  tunedSpeedLevel?: number;
+  tunedArmorLevel?: number;
+  tunedBatteryLevel?: number;
+  tunedSolarLevel?: number;
+  headlightsOn?: boolean;
   mode: string;
   sciencePoints: number;
+  steering?: number;
   upgrades: RoverUpgrades;
   customization: RoverCustomization;
   unlockedSkins: string[];
   unlockedWheels: string[];
   unlockedLights: string[];
   unlockedTrails: string[];
+}
+
+export interface CharacterProfile {
+  id: string; // lowercase trimmed identifier e.g. 'ayaan'
+  name: string; // display name e.g. 'Ayaan'
+  passcode?: string; // Secure account passcode for cross-device persistence
+  hasPasscode?: boolean; // Flag indicating if account is protected with a passcode
+  titleHonorific?: string; // e.g. 'Chief Astrobiologist' or 'A.R.E.S. Core Protocol'
+  coins: number; // Current coins / points available
+  pointsSpent: number; // Total points used / spent so far
+  totalPointsEarned: number; // Lifetime total points earned
+  currentLevelNum: number;
+  createdAt: string;
+  lastPlayedAt: string;
+  rover: RoverState;
+  discoveries: DiscoveryItem[];
+  levels: Record<number, LevelConfig>;
 }
 
 export interface ObjectiveItem {
@@ -60,6 +91,10 @@ export interface TargetItem {
   scanned?: boolean;
   marked?: boolean;
   info?: string;
+  chemicalFormula?: string;
+  astroPotential?: string;
+  category?: string;
+  density?: string;
 }
 
 export interface LavaZone {
@@ -81,9 +116,21 @@ export interface LavaPath {
   radius?: number;
 }
 
+export interface RockObstacle {
+  id?: string;
+  x: number;
+  y: number;
+  radius: number; // Collision and visual radius
+  height?: number; // Visual 3D height
+  shape?: number; // Seed for polygon irregularity
+  color?: string; // Color override or biome tone
+}
+
 export interface LevelConfig {
   title: string;
   subtitle: string;
+  name?: string;
+  scientificTitle?: string;
   mapWidth: number;
   mapHeight: number;
   startPos: { x: number; y: number };
@@ -93,6 +140,7 @@ export interface LevelConfig {
   targets: TargetItem[];
   lavaZones?: LavaZone[];
   lavaPaths?: LavaPath[];
+  rocks?: RockObstacle[];
 }
 
 export interface DiscoveryItem {
@@ -100,6 +148,11 @@ export interface DiscoveryItem {
   desc: string;
   coords: string;
   temp: string;
+  chemicalFormula?: string;
+  astroPotential?: string;
+  category?: string;
+  density?: string;
+  epoch?: string;
 }
 
 export interface SkinItem {

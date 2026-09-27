@@ -6,11 +6,29 @@ import {
   Wrench,
   Palette,
   BookOpen,
-  Smartphone,
   CheckCircle2,
   AlertTriangle,
+  Camera,
+  Compass,
+  Eye,
+  Cog,
+  ShieldAlert,
+  ShieldCheck,
+  Flame,
+  Lightbulb,
+  Coins,
+  User,
+  Zap,
 } from 'lucide-react';
 import { LevelConfig, RoverState, SkinItem } from '../types';
+import { CameraMode } from './GameCanvas';
+import { biomeTypes } from '../data/gameData';
+
+export interface DangerAlertData {
+  text: string;
+  subtext?: string;
+  type: 'lava' | 'rock' | 'critical' | 'repaired';
+}
 
 interface HUDOverlayProps {
   currentLevel: LevelConfig;
@@ -20,13 +38,23 @@ interface HUDOverlayProps {
   radioSubtitleText: string | null;
   nearInteractive: boolean;
   inLavaHazard?: boolean;
+  dangerAlert?: DangerAlertData | null;
+  cameraMode: CameraMode;
+  isDrillingSample?: boolean;
+  drillingProgress?: number;
+  activePilotName?: string;
+  onSetCameraMode: (mode: CameraMode) => void;
   onPause: () => void;
   onRadarScan: () => void;
   onOpenCleaner: () => void;
   onOpenUpgradeLab: () => void;
   onOpenGarage: () => void;
   onOpenScienceLog: () => void;
-  onOpenApkModal: () => void;
+  onOpenLavaBridge?: () => void;
+  onToggleHeadlights?: () => void;
+  onSwitchPilot?: () => void;
+  isAresUser?: boolean;
+  onOpenTeleportModal?: () => void;
   // Touch handlers
   onTouchDirection: (dir: 'up' | 'down' | 'left' | 'right', pressed: boolean) => void;
   onTouchInteract: () => void;
@@ -40,13 +68,23 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
   radioSubtitleText,
   nearInteractive,
   inLavaHazard = false,
+  dangerAlert,
+  cameraMode,
+  isDrillingSample = false,
+  drillingProgress = 0,
+  activePilotName = 'Explorer',
+  isAresUser = false,
+  onOpenTeleportModal,
+  onSetCameraMode,
   onPause,
   onRadarScan,
   onOpenCleaner,
   onOpenUpgradeLab,
   onOpenGarage,
   onOpenScienceLog,
-  onOpenApkModal,
+  onOpenLavaBridge,
+  onToggleHeadlights,
+  onSwitchPilot,
   onTouchDirection,
   onTouchInteract,
 }) => {
@@ -109,6 +147,19 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
       });
     }
 
+    // Rock obstacles on minimap
+    if (currentLevel.rocks) {
+      ctx.fillStyle = '#64748B';
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 1;
+      currentLevel.rocks.forEach((rock) => {
+        ctx.beginPath();
+        ctx.arc(rock.x * scaleX, rock.y * scaleY, Math.max(1.8, rock.radius * scaleX), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      });
+    }
+
     // Targets on minimap
     currentLevel.targets.forEach((t) => {
       ctx.fillStyle = t.type === 'station' ? '#FF5722' : t.type === 'sample' ? '#E67E22' : '#4DD0E1';
@@ -137,25 +188,60 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
 
   const speedKmh = (Math.abs(rover.speed) * 3.6).toFixed(1);
   const batteryPct = Math.round(rover.battery);
+  const healthPct = Math.max(0, Math.min(100, Math.round(rover.health ?? 100)));
   const solarEffPct = Math.round(100 - rover.dust);
 
   return (
     <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between p-3 md:p-4 select-none">
       {/* TOP HUD ROW */}
       <div className="flex justify-between items-start w-full pointer-events-auto gap-2">
-        {/* Left: Mission Objectives */}
-        <div className="glass-panel rounded-xl p-3 max-w-xs md:max-w-md w-full border-l-4 border-l-[#4DD0E1] shadow-lg">
-          <div className="flex items-center justify-between border-b border-[#4DD0E1]/30 pb-1 mb-1.5">
-            <span className="font-orbitron font-bold text-[11px] md:text-xs text-[#4DD0E1] tracking-wider uppercase truncate">
-              {currentLevel.title}
-            </span>
-            <span className="text-[9px] px-2 py-0.5 rounded bg-[#9E2A1B]/60 text-[#E67E22] font-bold border border-[#E67E22]/40 whitespace-nowrap ml-1">
-              EXPEDITION
-            </span>
+        {/* Left: Mission Objectives & Commander Badge */}
+        <div className="flex flex-col space-y-1.5 max-w-xs md:max-w-md w-full">
+          <div className="glass-panel rounded-xl p-3 border-l-4 border-l-[#4DD0E1] shadow-lg">
+            <div className="flex items-center justify-between border-b border-[#4DD0E1]/30 pb-1 mb-1.5">
+              <span className="font-orbitron font-bold text-[11px] md:text-xs text-[#4DD0E1] tracking-wider uppercase truncate">
+                {currentLevel.title}
+              </span>
+              <span className="text-[9px] px-2 py-0.5 rounded bg-[#9E2A1B]/60 text-[#E67E22] font-bold border border-[#E67E22]/40 whitespace-nowrap ml-1">
+                EXPEDITION
+              </span>
+            </div>
+            <div className="flex items-center space-x-2 text-xs text-[#F4F7FA]/90">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#E67E22] flex-shrink-0" />
+              <span className="font-medium">{currentObjectiveText}</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-[#F4F7FA]/90">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#E67E22] flex-shrink-0" />
-            <span className="font-medium">{currentObjectiveText}</span>
+
+          {/* Commander Profile & Coins Quick Badge */}
+          <div className="glass-panel px-3 py-1.5 rounded-xl border border-white/15 flex items-center justify-between text-xs font-orbitron shadow-md bg-black/70">
+            <div className="flex items-center space-x-2 truncate">
+              <User className="w-3.5 h-3.5 text-[#4DD0E1] flex-shrink-0" />
+              <span className="text-[10px] text-white/60">PILOT:</span>
+              <strong className="text-[#E67E22] tracking-wider font-bold truncate max-w-[100px] sm:max-w-[140px]">
+                {activePilotName.toUpperCase()}
+              </strong>
+              <span className="text-white/20">|</span>
+              <div className="flex items-center space-x-1 text-[#F1C40F] flex-shrink-0">
+                <Coins className="w-3 h-3 text-[#F1C40F]" />
+                <strong className="text-xs font-mono font-bold">
+                  {(rover.coins ?? rover.dust ?? 0).toLocaleString()} Pts
+                </strong>
+              </div>
+              <span className="text-white/20">|</span>
+              <span className="text-[10px] text-white/60">
+                Spent: <strong className="text-[#FF9800]">{(rover.pointsSpent ?? 0).toLocaleString()}</strong>
+              </span>
+            </div>
+
+            {onSwitchPilot && (
+              <button
+                onClick={onSwitchPilot}
+                className="ml-2 text-[9px] px-2 py-0.5 rounded bg-[#4DD0E1]/20 hover:bg-[#4DD0E1]/35 border border-[#4DD0E1]/40 text-[#4DD0E1] font-bold cursor-pointer transition-all whitespace-nowrap"
+                title="Switch Commander Profile"
+              >
+                SWITCH
+              </button>
+            )}
           </div>
         </div>
 
@@ -186,59 +272,74 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
             </div>
           </div>
 
-          <div className="flex space-x-1.5">
-            <button
-              onClick={onOpenApkModal}
-              className="glass-panel glass-panel-interactive px-2.5 py-1.5 rounded-lg text-xs font-orbitron font-bold text-[#4DD0E1] flex items-center space-x-1 cursor-pointer"
-              title="Android APK / Install"
-            >
-              <Smartphone className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">APK</span>
-            </button>
-            <button
-              onClick={onPause}
-              className="glass-panel glass-panel-interactive px-2.5 py-1.5 rounded-lg text-xs font-orbitron font-bold text-[#E67E22] flex items-center space-x-1 cursor-pointer"
-              title="Pause Mission"
-            >
-              <Pause className="w-3.5 h-3.5" />
-              <span>(P)</span>
-            </button>
+          {/* 3D CAMERA VIEW SELECTOR (100% VISIBLE BELOW MINIMAP) */}
+          <div className="flex flex-col items-end space-y-1.5">
+            <div className="flex bg-[#080F1E]/95 p-1 rounded-xl border border-[#4DD0E1]/40 shadow-xl space-x-1">
+              <button
+                onClick={() => onSetCameraMode('chase')}
+                className={`px-2 py-1 rounded-lg text-[10px] font-orbitron font-bold flex items-center space-x-1 cursor-pointer transition-all ${
+                  cameraMode === 'chase'
+                    ? 'bg-[#4DD0E1] text-black shadow-md'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                }`}
+                title="Third-Person Chase Camera"
+              >
+                <Camera className="w-3 h-3" />
+                <span>CHASE</span>
+              </button>
+              <button
+                onClick={() => onSetCameraMode('topdown')}
+                className={`px-2 py-1 rounded-lg text-[10px] font-orbitron font-bold flex items-center space-x-1 cursor-pointer transition-all ${
+                  cameraMode === 'topdown'
+                    ? 'bg-[#4DD0E1] text-black shadow-md'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                }`}
+                title="Top-Down Overhead 3D View"
+              >
+                <Compass className="w-3 h-3" />
+                <span>TOP-DOWN</span>
+              </button>
+              <button
+                onClick={() => onSetCameraMode('cockpit')}
+                className={`px-2 py-1 rounded-lg text-[10px] font-orbitron font-bold flex items-center space-x-1 cursor-pointer transition-all ${
+                  cameraMode === 'cockpit'
+                    ? 'bg-[#4DD0E1] text-black shadow-md'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                }`}
+                title="First-Person Rover Mast Camera"
+              >
+                <Eye className="w-3 h-3" />
+                <span>MAST</span>
+              </button>
+            </div>
+
+            <div className="flex items-center space-x-1.5">
+              {isAresUser && onOpenTeleportModal && (
+                <button
+                  onClick={onOpenTeleportModal}
+                  className="px-2.5 py-1.5 rounded-lg text-xs font-orbitron font-bold text-amber-300 bg-amber-500/20 border-2 border-amber-400 hover:bg-amber-400 hover:text-black flex items-center space-x-1 cursor-pointer transition-all shadow-[0_0_15px_rgba(241,196,15,0.4)] animate-pulse"
+                  title="A.R.E.S. Planetary Biome Teleporter"
+                >
+                  <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                  <span>WARP</span>
+                </button>
+              )}
+
+              <button
+                onClick={onPause}
+                className="glass-panel glass-panel-interactive px-3 py-1.5 rounded-lg text-xs font-orbitron font-bold text-[#E67E22] flex items-center space-x-1 cursor-pointer"
+                title="Pause Mission"
+              >
+                <Pause className="w-3.5 h-3.5" />
+                <span>(P)</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* CENTER HUD INTERACTION PROMPTS & WARNINGS */}
-      <div className="flex flex-col items-center justify-center space-y-2 pointer-events-none">
-        {nearInteractive && (
-          <div className="glass-panel px-6 py-2 rounded-full text-xs md:text-sm font-orbitron font-bold text-[#E67E22] border border-[#E67E22] animate-bounce shadow-xl">
-            PRESS 'E' OR TAP ACTION TO INTERACT
-          </div>
-        )}
-        {inLavaHazard && (
-          <div className="glass-panel px-5 py-2.5 rounded-xl text-xs md:text-sm font-orbitron font-black text-[#FF3D00] border-2 border-[#FF3D00] bg-black/90 animate-pulse flex items-center space-x-2 shadow-2xl">
-            <AlertTriangle className="w-5 h-5 text-[#FF3D00] animate-bounce flex-shrink-0" />
-            <span>CRITICAL THERMAL ALERT: IN MOLTEN LAVA! RETURN TO BASALT PATH!</span>
-          </div>
-        )}
-        {currentLevel.biome === 'lava' && !inLavaHazard && (
-          <div className="glass-panel px-3.5 py-1 rounded-lg text-[11px] font-orbitron font-semibold text-[#FF5722] border border-[#FF5722]/50 flex items-center space-x-1.5 bg-black/50">
-            <span className="w-2 h-2 rounded-full bg-[#FF5722] animate-ping" />
-            <span>ACTIVE MAGMA ZONE: REMAIN STRICTLY ON DESIGNATED BASALT PATHS</span>
-          </div>
-        )}
-        {currentLevel.biome === 'ice' && (
-          <div className="glass-panel warning-pulse px-4 py-1.5 rounded-lg text-xs font-orbitron font-bold text-[#4DD0E1] border border-[#4DD0E1] flex items-center space-x-1.5">
-            <AlertTriangle className="w-3.5 h-3.5" />
-            <span>LOW TRACTION POLAR GLACIER SURFACE</span>
-          </div>
-        )}
-        {currentLevel.biome === 'summit' && (
-          <div className="glass-panel px-3.5 py-1 rounded-lg text-[11px] font-orbitron font-semibold text-[#7E57C2] border border-[#7E57C2]/50 flex items-center space-x-1.5 bg-black/50">
-            <span className="w-2 h-2 rounded-full bg-[#7E57C2] animate-ping" />
-            <span>OLYMPUS MONS APEX: 21,287 METERS ALTITUDE • LOW DRAG</span>
-          </div>
-        )}
-      </div>
+      {/* CENTER VIEWPORT KEPT COMPLETELY OPEN AND UNOBSTRUCTED */}
+      <div className="flex-1 pointer-events-none" />
 
       {/* BOTTOM HUD ROW */}
       <div className="flex flex-col md:flex-row justify-between items-end w-full gap-2 pointer-events-auto">
@@ -288,6 +389,50 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
             </span>
           </div>
 
+          {/* Terrain Grip & Difficulty Telemetry */}
+          <div className="flex justify-between items-center text-[10px] font-orbitron border-b border-[#4DD0E1]/20 pb-1">
+            <span className="text-white/60">TERRAIN TRACTION:</span>
+            <span className="text-[#FF9800] font-bold truncate max-w-[170px]" title={biomeTypes[currentLevel.biome]?.tractionDesc}>
+              {biomeTypes[currentLevel.biome]?.tractionDesc || 'STANDARD TRACTION'}
+            </span>
+          </div>
+
+          <div>
+            <div className="flex justify-between text-[11px] font-orbitron font-semibold mb-1">
+              <span className="flex items-center space-x-1 text-[#F4F7FA]/80">
+                {healthPct < 30 ? (
+                  <ShieldAlert className="w-3.5 h-3.5 text-[#FF3D00] animate-pulse" />
+                ) : (
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#2ECC71]" />
+                )}
+                <span>HULL INTEGRITY</span>
+              </span>
+              <span
+                className={`font-orbitron font-black text-xs ${
+                  healthPct > 65
+                    ? 'text-[#2ECC71]'
+                    : healthPct > 30
+                    ? 'text-[#E67E22]'
+                    : 'text-[#FF3D00] animate-pulse'
+                }`}
+              >
+                {Math.round(rover.health ?? 100)} / {Math.round(rover.maxHealth || 100)}
+              </span>
+            </div>
+            <div className="w-full bg-[#080F1E] h-2.5 rounded-full overflow-hidden border border-[#4DD0E1]/30 p-[1px]">
+              <div
+                className={`h-full rounded-full transition-all duration-300 ${
+                  healthPct > 65
+                    ? 'bg-gradient-to-r from-[#27ae60] to-[#2ecc71]'
+                    : healthPct > 30
+                    ? 'bg-gradient-to-r from-[#d35400] to-[#e67e22]'
+                    : 'bg-gradient-to-r from-[#c0392b] to-[#ff3d00] animate-pulse'
+                }`}
+                style={{ width: `${Math.max(2, healthPct)}%` }}
+              />
+            </div>
+          </div>
+
           <div>
             <div className="flex justify-between text-[11px] font-orbitron font-semibold mb-1">
               <span className="text-[#F4F7FA]/70">BATTERY POWER</span>
@@ -333,6 +478,28 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
 
         {/* Action Hotkeys / Buttons */}
         <div className="flex flex-wrap justify-center gap-1.5 md:gap-2">
+          {onToggleHeadlights && (
+            <button
+              onClick={onToggleHeadlights}
+              className={`glass-panel glass-panel-interactive px-3 py-1.5 md:py-2 rounded-xl text-xs font-orbitron font-bold flex flex-col items-center cursor-pointer shadow-md transition-all ${
+                rover.headlightsOn !== false
+                  ? 'text-[#F1C40F] border border-[#F1C40F]/50 bg-amber-950/30'
+                  : 'text-white/60 border border-white/10 hover:text-white'
+              }`}
+              title="Toggle Rover High-Output Headlights (H)"
+            >
+              <div className="flex items-center space-x-1">
+                <Lightbulb
+                  className={`w-3.5 h-3.5 ${
+                    rover.headlightsOn !== false ? 'text-[#F1C40F] fill-current animate-pulse' : 'text-white/40'
+                  }`}
+                />
+                <span>LIGHTS: {rover.headlightsOn !== false ? 'ON' : 'OFF'}</span>
+              </div>
+              <span className="text-[9px] text-[#F4F7FA]/60 font-normal">(H)</span>
+            </button>
+          )}
+
           <button
             onClick={onRadarScan}
             className="glass-panel glass-panel-interactive px-3 py-1.5 md:py-2 rounded-xl text-xs font-orbitron font-bold text-[#4DD0E1] flex flex-col items-center cursor-pointer shadow-md"
@@ -387,6 +554,19 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
             </div>
             <span className="text-[9px] text-[#F4F7FA]/60 font-normal">(LOG)</span>
           </button>
+
+          {currentLevel.biome === 'lava' && onOpenLavaBridge && (
+            <button
+              onClick={onOpenLavaBridge}
+              className="glass-panel glass-panel-interactive px-3 py-1.5 md:py-2 rounded-xl text-xs font-orbitron font-bold text-[#FF3D00] border border-[#FF3D00] flex flex-col items-center cursor-pointer shadow-md bg-red-950/40"
+            >
+              <div className="flex items-center space-x-1">
+                <Flame className="w-3.5 h-3.5 text-[#FF3D00] animate-pulse" />
+                <span>LAVA BRIDGE</span>
+              </div>
+              <span className="text-[9px] text-white/60 font-normal">(BUILD)</span>
+            </button>
+          )}
         </div>
 
         {/* Right Environmental Telemetry */}
@@ -470,6 +650,103 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
           </button>
         </div>
       </div>
+
+      {/* 1-SECOND DRILL ANIMATION BANNER AT BOTTOM (LEAVES CENTER OF VIEWPORT CLEAR TO SEE THE DRILL ANIMATION) */}
+      {isDrillingSample && (
+        <div className="fixed bottom-24 sm:bottom-20 left-1/2 -translate-x-1/2 z-40 pointer-events-none w-auto max-w-[92vw] transition-all">
+          <div className="glass-panel px-5 py-2.5 rounded-xl text-xs md:text-sm font-orbitron font-black text-[#F1C40F] border-2 border-[#F1C40F] bg-black/95 shadow-[0_0_35px_rgba(241,196,15,0.7)] flex flex-col items-center space-y-1.5">
+            <div className="flex items-center space-x-2">
+              <Cog className="w-4 h-4 text-[#F1C40F] animate-spin" />
+              <span>ROBOTIC DRILL ENGAGED • EXTRACTING SAMPLE CORE (1.0s)</span>
+            </div>
+            <div className="w-60 max-w-full h-2 bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-[#F1C40F] to-[#E67E22] transition-all duration-75"
+                style={{ width: `${Math.min(100, Math.round((drillingProgress || 0) * 100))}%` }}
+              />
+            </div>
+            <span className="text-[10px] text-white/80 font-sans tracking-normal font-medium">
+              Rotary coring bit drilling surface bedrock • Sparks & regolith dust sealed
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* HIGH-VISIBILITY DANGER & HAZARD BANNER AT THE BOTTOM */}
+      {dangerAlert && (
+        <div className="fixed bottom-24 sm:bottom-20 left-1/2 -translate-x-1/2 z-40 pointer-events-none w-auto max-w-[92vw] transition-all">
+          <div
+            className={`px-4 py-2 rounded-xl font-orbitron font-black text-xs md:text-sm tracking-widest flex items-center space-x-2.5 shadow-2xl border ${
+              dangerAlert.type === 'lava'
+                ? 'bg-red-950/95 border-red-500 text-red-100 shadow-[0_0_30px_rgba(239,68,68,0.7)]'
+                : dangerAlert.type === 'critical'
+                ? 'bg-red-950/95 border-rose-500 text-rose-100 animate-pulse shadow-[0_0_35px_rgba(244,63,94,0.85)]'
+                : dangerAlert.type === 'repaired'
+                ? 'bg-emerald-950/95 border-emerald-500 text-emerald-100 shadow-[0_0_25px_rgba(16,185,129,0.6)]'
+                : 'bg-amber-950/95 border-amber-500 text-amber-100 shadow-[0_0_30px_rgba(245,158,11,0.7)]'
+            }`}
+          >
+            <span
+              className={`w-2.5 h-2.5 rounded-full animate-ping flex-shrink-0 ${
+                dangerAlert.type === 'repaired'
+                  ? 'bg-emerald-400'
+                  : dangerAlert.type === 'rock'
+                  ? 'bg-amber-400'
+                  : 'bg-red-500'
+              }`}
+            />
+            {dangerAlert.type === 'lava' ? (
+              <Flame className="w-4 h-4 text-red-400 flex-shrink-0 animate-pulse" />
+            ) : dangerAlert.type === 'repaired' ? (
+              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+            ) : dangerAlert.type === 'critical' ? (
+              <ShieldAlert className="w-4 h-4 text-rose-400 flex-shrink-0 animate-pulse" />
+            ) : (
+              <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            )}
+            <div className="flex flex-col text-left">
+              <span className="font-black leading-tight tracking-wider uppercase drop-shadow">
+                {dangerAlert.text}
+              </span>
+              {dangerAlert.subtext && (
+                <span className="text-[10px] md:text-xs font-semibold tracking-normal text-white/90 mt-0.5">
+                  {dangerAlert.subtext}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CRITICAL LOW INTEGRITY WARNING BANNER IF NO ACTIVE ALERT */}
+      {!dangerAlert && healthPct < 25 && (
+        <div className="fixed bottom-24 sm:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none w-auto max-w-[92vw]">
+          <div className="bg-red-950/95 border border-red-500 text-red-200 px-4 py-2 rounded-xl font-orbitron font-black text-xs md:text-sm tracking-widest flex items-center space-x-2.5 shadow-[0_0_30px_rgba(239,68,68,0.8)] animate-pulse">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping flex-shrink-0" />
+            <ShieldAlert className="w-4 h-4 text-red-400 flex-shrink-0 animate-bounce" />
+            <span>CRITICAL HULL INTEGRITY ({healthPct}%) • STRUCTURAL DAMAGE!</span>
+          </div>
+        </div>
+      )}
+
+      {/* PROMPT FOR 'PRESS E' AND 'SPACEBAR' ANCHORED AT BOTTOM (DOES NOT BLOCK VIEWPORT) */}
+      {nearInteractive && !isDrillingSample && !dangerAlert && (
+        <div className="fixed bottom-24 sm:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none w-auto max-w-[92vw] transition-all">
+          <div className="glass-panel px-4 py-2 rounded-xl text-xs md:text-sm font-orbitron font-black text-[#E67E22] border-2 border-[#E67E22] bg-black/90 shadow-[0_0_25px_rgba(230,126,34,0.7)] flex items-center space-x-2.5 animate-bounce">
+            <span className="px-2 py-0.5 rounded bg-[#E67E22] text-black font-black text-xs">
+              E
+            </span>
+            <span className="tracking-wider">PRESS 'E' OR TAP ACTION TO INTERACT</span>
+            <span className="text-white/40 text-xs hidden sm:inline">|</span>
+            <span className="px-2 py-0.5 rounded bg-[#4DD0E1]/30 border border-[#4DD0E1]/60 text-[#4DD0E1] font-mono text-[10px] hidden sm:inline">
+              SPACE
+            </span>
+            <span className="text-[#4DD0E1] text-xs font-bold hidden sm:inline">
+              RADAR
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

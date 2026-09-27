@@ -4,6 +4,7 @@ export type SoundType =
   | 'drive'
   | 'ping'
   | 'drill'
+  | 'sample'
   | 'clean'
   | 'upgrade'
   | 'click'
@@ -11,7 +12,9 @@ export type SoundType =
   | 'thruster'
   | 'touchdown'
   | 'boom'
-  | 'whoosh';
+  | 'whoosh'
+  | 'impact'
+  | 'alarm';
 
 export function useSoundEffects() {
   const [audioEnabled, setAudioEnabled] = useState(true);
@@ -60,12 +63,44 @@ export function useSoundEffects() {
         osc.start(now);
         osc.stop(now + 0.25);
       } else if (type === 'drill') {
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(140, now);
-        gain.gain.setValueAtTime(0.08, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+        // 1-second rotary coring hammer-drill sound with mechanical servo whirr & grinding percussive harmonics
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.linearRampToValueAtTime(320, now + 0.2);
+        osc.frequency.linearRampToValueAtTime(280, now + 0.5);
+        osc.frequency.linearRampToValueAtTime(380, now + 0.8);
+        osc.frequency.linearRampToValueAtTime(120, now + 1.0);
+        gain.gain.setValueAtTime(0.02, now);
+        gain.gain.linearRampToValueAtTime(0.18, now + 0.15);
+        gain.gain.setValueAtTime(0.18, now + 0.85);
+        gain.gain.linearRampToValueAtTime(0.001, now + 1.0);
         osc.start(now);
-        osc.stop(now + 0.2);
+        osc.stop(now + 1.0);
+
+        // Coring percussive harmonic oscillator
+        const oscGrind = ctx.createOscillator();
+        const gainGrind = ctx.createGain();
+        oscGrind.type = 'square';
+        oscGrind.frequency.setValueAtTime(85, now + 0.15);
+        oscGrind.frequency.exponentialRampToValueAtTime(140, now + 0.85);
+        gainGrind.gain.setValueAtTime(0.01, now);
+        gainGrind.gain.linearRampToValueAtTime(0.12, now + 0.2);
+        gainGrind.gain.linearRampToValueAtTime(0.001, now + 0.95);
+        oscGrind.connect(gainGrind);
+        gainGrind.connect(ctx.destination);
+        oscGrind.start(now + 0.15);
+        oscGrind.stop(now + 0.95);
+      } else if (type === 'sample') {
+        // High-tech mineral capture chime
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, now); // C5
+        osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+        osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+        osc.frequency.setValueAtTime(1046.5, now + 0.24); // C6
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.45);
+        osc.start(now);
+        osc.stop(now + 0.45);
       } else if (type === 'clean' || type === 'upgrade') {
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(320, now);
@@ -106,13 +141,27 @@ export function useSoundEffects() {
         osc.start(now);
         osc.stop(now + 0.5);
       } else if (type === 'boom') {
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(220, now);
-        osc.frequency.exponentialRampToValueAtTime(40, now + 0.35);
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.35);
+        // Multi-layered volcanic explosion: sub-bass rumble + distorted impact shockwave
+        const oscLow = ctx.createOscillator();
+        const gainLow = ctx.createGain();
+        oscLow.type = 'sine';
+        oscLow.frequency.setValueAtTime(90, now);
+        oscLow.frequency.exponentialRampToValueAtTime(25, now + 0.85);
+        gainLow.gain.setValueAtTime(0.45, now);
+        gainLow.gain.linearRampToValueAtTime(0.001, now + 0.85);
+        oscLow.connect(gainLow);
+        gainLow.connect(ctx.destination);
+        oscLow.start(now);
+        oscLow.stop(now + 0.85);
+
+        // High-frequency crackle and burst
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(280, now);
+        osc.frequency.exponentialRampToValueAtTime(35, now + 0.5);
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.5);
         osc.start(now);
-        osc.stop(now + 0.35);
+        osc.stop(now + 0.5);
       } else if (type === 'whoosh') {
         osc.type = 'sine';
         osc.frequency.setValueAtTime(400, now);
@@ -121,6 +170,37 @@ export function useSoundEffects() {
         gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
         osc.start(now);
         osc.stop(now + 0.3);
+      } else if (type === 'impact') {
+        // Metallic rock collision crunch & thud
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(180, now);
+        osc.frequency.exponentialRampToValueAtTime(30, now + 0.28);
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.28);
+        osc.start(now);
+        osc.stop(now + 0.28);
+
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'square';
+        osc2.frequency.setValueAtTime(80, now);
+        osc2.frequency.exponentialRampToValueAtTime(20, now + 0.35);
+        gain2.gain.setValueAtTime(0.4, now);
+        gain2.gain.linearRampToValueAtTime(0.001, now + 0.35);
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+        osc2.start(now);
+        osc2.stop(now + 0.35);
+      } else if (type === 'alarm') {
+        // Urgent two-tone HUD hull breach alarm
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.setValueAtTime(659, now + 0.12);
+        osc.frequency.setValueAtTime(880, now + 0.24);
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.38);
+        osc.start(now);
+        osc.stop(now + 0.38);
       }
     } catch {
       // Audio context error fallback

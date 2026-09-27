@@ -1,0 +1,3807 @@
+[
+  {
+    "id": "ayaan",
+    "name": "ayaan",
+    "passcode": "201220",
+    "hasPasscode": false,
+    "coins": 7925,
+    "pointsSpent": 1245,
+    "totalPointsEarned": 100,
+    "currentLevelNum": 2,
+    "createdAt": "2026-09-27T14:08:42.749Z",
+    "lastPlayedAt": "2026-09-27T14:51:12.843Z",
+    "rover": {
+      "x": 841.0286391767726,
+      "y": 783.3560699290766,
+      "vx": -4.235914832637921e-174,
+      "vy": 1.637022489812617e-173,
+      "angle": 1.8240000000000007,
+      "speed": 1.6909383125489588e-173,
+      "health": 100,
+      "maxHealth": 100,
+      "battery": 100,
+      "solarEff": 88.5459999999998,
+      "dust": 11.454000000000212,
+      "mode": "EXPLORATION",
+      "sciencePoints": 3820,
+      "upgrades": {
+        "duneTreads": true,
+        "iceRadar": true,
+        "stormShield": false,
+        "lavaPlates": false,
+        "quantumUplink": false
+      },
+      "customization": {
+        "skin": "emerald",
+        "wheel": "plasma",
+        "light": "violet",
+        "trail": "cyber"
+      },
+      "unlockedSkins": [
+        "classic",
+        "cyber",
+        "gold",
+        "stealth",
+        "emerald"
+      ],
+      "unlockedWheels": [
+        "standard",
+        "plasma"
+      ],
+      "unlockedLights": [
+        "cyan",
+        "violet"
+      ],
+      "unlockedTrails": [
+        "none",
+        "dust",
+        "cyber"
+      ],
+      "coins": 7925,
+      "pointsSpent": 1245,
+      "totalPointsEarned": 100,
+      "tunedSpeedLevel": 2,
+      "tunedArmorLevel": 0,
+      "tunedBatteryLevel": 2,
+      "tunedSolarLevel": 0,
+      "headlightsOn": true,
+      "steering": 0
+    },
+    "discoveries": [
+      {
+        "title": "Melas Basalt Bedrock Core",
+        "desc": "Tholeiitic basalt bedrock rich in pyroxene, plagioclase, and magnesium-rich olivine. Represents primordial Noachian planetary crust exposed by monumental tectonic rifting.",
+        "coords": "1155, 665",
+        "temp": "-62°C"
+      }
+    ],
+    "levels": {
+      "1": {
+        "title": "LEVEL 1: VALLES MARINERIS • MELAS CHASMA",
+        "subtitle": "Melas Chasma Basalt Bedrock Exploration",
+        "mapWidth": 2200,
+        "mapHeight": 2200,
+        "startPos": {
+          "x": 400,
+          "y": 400
+        },
+        "bg": "#9E2A1B",
+        "biome": "basalt",
+        "objectives": [
+          {
+            "id": "move",
+            "text": "Leave capsule zone and enter Melas Chasma canyon floor.",
+            "done": true
+          },
+          {
+            "id": "upgrade1",
+            "text": "Visit Workshop Station & complete Gear Traction Minigame.",
+            "done": true,
+            "pos": {
+              "x": 800,
+              "y": 800
+            }
+          },
+          {
+            "id": "sample1",
+            "text": "Drill & collect Noachian basalt bedrock core.",
+            "done": true,
+            "pos": {
+              "x": 1200,
+              "y": 650
+            }
+          },
+          {
+            "id": "transmit",
+            "text": "Transmit canyon data to Earth relay.",
+            "done": true,
+            "pos": {
+              "x": 1600,
+              "y": 1600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Melas Engineering Station Alpha",
+            "x": 800,
+            "y": 800,
+            "minigame": 1,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Melas Basalt Bedrock Core",
+            "x": 1200,
+            "y": 650,
+            "collected": true,
+            "info": "Tholeiitic basalt bedrock rich in pyroxene, plagioclase, and magnesium-rich olivine. Represents primordial Noachian planetary crust exposed by monumental tectonic rifting.",
+            "chemicalFormula": "(Mg,Fe)₂SiO₄ + CaAl₂Si₂O₈",
+            "astroPotential": "MODERATE - Radiolytic Hydrogen Energy for Subsurface Microbes",
+            "category": "THOLEIITIC BASALT CRUST",
+            "density": "3.08 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Earth Antenna Relay",
+            "x": 1600,
+            "y": 1600,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 550,
+            "y": 420,
+            "radius": 24,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 620,
+            "y": 700,
+            "radius": 30,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 520,
+            "radius": 22,
+            "height": 16,
+            "shape": 3
+          },
+          {
+            "x": 950,
+            "y": 620,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1050,
+            "y": 880,
+            "radius": 28,
+            "height": 20,
+            "shape": 5
+          },
+          {
+            "x": 1120,
+            "y": 520,
+            "radius": 26,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1350,
+            "y": 720,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1420,
+            "y": 950,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1550,
+            "y": 1250,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1400,
+            "radius": 25,
+            "height": 18,
+            "shape": 5
+          },
+          {
+            "x": 1100,
+            "y": 1550,
+            "radius": 30,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 850,
+            "y": 1300,
+            "radius": 27,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 680,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 500,
+            "y": 1250,
+            "radius": 26,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 600,
+            "y": 1600,
+            "radius": 35,
+            "height": 27,
+            "shape": 5
+          },
+          {
+            "x": 850,
+            "y": 1750,
+            "radius": 29,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1400,
+            "y": 1750,
+            "radius": 33,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1450,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1800,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1650,
+            "y": 1900,
+            "radius": 26,
+            "height": 18,
+            "shape": 5
+          }
+        ]
+      },
+      "2": {
+        "title": "LEVEL 2: JEZERO CRATER • NERETVA VALLIS",
+        "subtitle": "Ancient Paleolake Delta & Barchan Dunes",
+        "mapWidth": 2600,
+        "mapHeight": 2600,
+        "startPos": {
+          "x": 350,
+          "y": 350
+        },
+        "bg": "#E67E22",
+        "biome": "dunes",
+        "objectives": [
+          {
+            "id": "upgrade2",
+            "text": "Visit Dune Workshop & complete Wave Radar Minigame.",
+            "done": true,
+            "pos": {
+              "x": 850,
+              "y": 850
+            }
+          },
+          {
+            "id": "radarIce",
+            "text": "Use Ice Radar (SPACE) near ancient paleolake bed to scan subsurface ice.",
+            "done": false,
+            "pos": {
+              "x": 1450,
+              "y": 1250
+            }
+          },
+          {
+            "id": "reachTower",
+            "text": "Reach high delta rim comm tower.",
+            "done": false,
+            "pos": {
+              "x": 2200,
+              "y": 2100
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Neretva Workshop Relay",
+            "x": 850,
+            "y": 850,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "ice",
+            "name": "Neretva Subsurface Permafrost Ice",
+            "x": 1450,
+            "y": 1250,
+            "scanned": false,
+            "info": "Glacial cryo-lens buried 0.4m beneath fine aeolian quartz-silt. Formed during the late Hesperian lacustrine drying phase; contains preserved ancient water molecules.",
+            "chemicalFormula": "H₂O(s) + CO₂(s) Hydrate Matrix",
+            "astroPotential": "CRITICAL - Preserved Paleolake Micro-Biosignatures",
+            "category": "LACUSTRINE CRYOSPHERE",
+            "density": "0.94 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Jezero Delta Comm Tower",
+            "x": 2200,
+            "y": 2100,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 480,
+            "radius": 25,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 680,
+            "y": 380,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 680,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1020,
+            "y": 720,
+            "radius": 35,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1180,
+            "y": 920,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1300,
+            "y": 1100,
+            "radius": 27,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1600,
+            "y": 1180,
+            "radius": 34,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1350,
+            "y": 1380,
+            "radius": 29,
+            "height": 21,
+            "shape": 3
+          },
+          {
+            "x": 1200,
+            "y": 1600,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 950,
+            "y": 1450,
+            "radius": 24,
+            "height": 17,
+            "shape": 5
+          },
+          {
+            "x": 780,
+            "y": 1700,
+            "radius": 31,
+            "height": 23,
+            "shape": 1
+          },
+          {
+            "x": 1050,
+            "y": 1900,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 1450,
+            "y": 1850,
+            "radius": 33,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 1700,
+            "y": 1600,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1900,
+            "y": 1400,
+            "radius": 26,
+            "height": 19,
+            "shape": 5
+          },
+          {
+            "x": 1850,
+            "y": 1850,
+            "radius": 35,
+            "height": 26,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1950,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 2350,
+            "y": 1950,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 2250,
+            "radius": 27,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 2250,
+            "radius": 34,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "3": {
+        "title": "LEVEL 3: PLANUM BOREUM • CHASMA BOREALE",
+        "subtitle": "Glacial Permafrost & Elysium Volcanic Ridge",
+        "mapWidth": 3200,
+        "mapHeight": 3200,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#080F1E",
+        "biome": "ice",
+        "objectives": [
+          {
+            "id": "upgrade3",
+            "text": "Visit Glacier Workshop & complete Shield Circuit Minigame.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "volcanoScan",
+            "text": "Scan geothermal magma vent for sub-ice heat.",
+            "done": false,
+            "pos": {
+              "x": 1900,
+              "y": 1600
+            }
+          },
+          {
+            "id": "markSettlement",
+            "text": "Mark future human settlement dome site.",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Chasma Boreale Shield Workshop",
+            "x": 900,
+            "y": 900,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Chasma Boreale Geothermal Magma Vent",
+            "x": 1900,
+            "y": 1600,
+            "collected": false,
+            "info": "Sub-glacial volcanic fumarole venting sulfurous compounds and hydrothermal water vapor into glacial crevasses. A prime candidate for geothermal power and sub-ice habitats.",
+            "chemicalFormula": "H₂S + SO₂ + FeS₂ + H₂O(v)",
+            "astroPotential": "EXTREME - Chemoautotrophic Thermophilic Colony Ecosystem",
+            "category": "SUBGLACIAL HYDROTHERMAL",
+            "density": "2.84 g/cm³"
+          },
+          {
+            "type": "settlement",
+            "name": "Planum Boreum Settlement Zone Alpha",
+            "x": 2700,
+            "y": 2600,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 750,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 750,
+            "radius": 30,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 1050,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1450,
+            "y": 880,
+            "radius": 29,
+            "height": 21,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1150,
+            "radius": 33,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 1550,
+            "y": 1450,
+            "radius": 38,
+            "height": 30,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1750,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 35,
+            "height": 27,
+            "shape": 4
+          },
+          {
+            "x": 2150,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1950,
+            "y": 2050,
+            "radius": 28,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 2250,
+            "y": 2150,
+            "radius": 36,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 31,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 2500,
+            "y": 2350,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2850,
+            "y": 2400,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2750,
+            "radius": 35,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2800,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1400,
+            "y": 1900,
+            "radius": 37,
+            "height": 29,
+            "shape": 3
+          },
+          {
+            "x": 1100,
+            "y": 1800,
+            "radius": 29,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1000,
+            "y": 1400,
+            "radius": 33,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "4": {
+        "title": "LEVEL 4: CERBERUS FOSSAE • ATHABASCA RIFT",
+        "subtitle": "Molten Magma Lakes & Basalt Bridges",
+        "mapWidth": 3400,
+        "mapHeight": 3400,
+        "startPos": {
+          "x": 350,
+          "y": 1700
+        },
+        "bg": "#140300",
+        "biome": "lava",
+        "objectives": [
+          {
+            "id": "upgrade4",
+            "text": "Visit Lava Forge Workshop & install Thermal Dampers.",
+            "done": false,
+            "pos": {
+              "x": 1000,
+              "y": 1700
+            }
+          },
+          {
+            "id": "crossChasm",
+            "text": "Cross Basalt Bridge over lava lake to Central Core Island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "magmaSample",
+            "text": "Extract Superheated Pyroxene crystal from core island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "geoGenerator",
+            "text": "Cross South Causeway to activate Geothermal Power Generator.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 2400
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Athabasca Lava Forge Workshop",
+            "x": 1000,
+            "y": 1700,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Athabasca Superheated Pyroxene Crystal",
+            "x": 1700,
+            "y": 1700,
+            "collected": false,
+            "info": "High-pressure clinopyroxene single crystal extracted from late Amazonian fissure lava. Formed in magma chambers at 1200°C; demonstrates deep Martian mantle convection dynamics.",
+            "chemicalFormula": "Ca(Mg,Fe)Si₂O₆ (Augite Matrix)",
+            "astroPotential": "LOW - High-Temperature Abiotic Igneous Melt",
+            "category": "MANTLE PYROXENE CRYSTAL",
+            "density": "3.42 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Athabasca Geothermal Generator",
+            "x": 1700,
+            "y": 2400,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "North Volcanic Fissure Vent",
+            "x": 1700,
+            "y": 1000,
+            "collected": false,
+            "info": "Elemental sulfur-encrusted chimney venting gaseous HCl, SO₂, and superheated volcanic steam.",
+            "chemicalFormula": "S₈ + FeS₂ + HCl",
+            "astroPotential": "MODERATE - Acidophilic Prebiotic Synthesis",
+            "category": "VOLCANIC SUBLIMATE",
+            "density": "2.07 g/cm³"
+          }
+        ],
+        "lavaZones": [
+          {
+            "x": 600,
+            "y": 600,
+            "width": 2200,
+            "height": 2200
+          }
+        ],
+        "lavaPaths": [
+          {
+            "type": "segment",
+            "x1": 250,
+            "y1": 1700,
+            "x2": 1000,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "island",
+            "cx": 1000,
+            "cy": 1700,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1000,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1700,
+            "width": 115
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1700,
+            "radius": 150
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1000,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1000,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 2400,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 2400,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 110
+          },
+          {
+            "type": "island",
+            "cx": 2400,
+            "cy": 1700,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 2400,
+            "y1": 1700,
+            "x2": 3150,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1000,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 2400,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 1620,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 520,
+            "y": 1780,
+            "radius": 28,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 920,
+            "y": 1610,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1080,
+            "y": 1790,
+            "radius": 27,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1450,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 1610,
+            "y": 1610,
+            "radius": 24,
+            "height": 18,
+            "shape": 2
+          },
+          {
+            "x": 1790,
+            "y": 1790,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1620,
+            "y": 1350,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 1780,
+            "y": 1180,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1610,
+            "y": 2100,
+            "radius": 27,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1790,
+            "y": 2250,
+            "radius": 25,
+            "height": 19,
+            "shape": 2
+          },
+          {
+            "x": 2100,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 3
+          },
+          {
+            "x": 2250,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 2600,
+            "y": 1620,
+            "radius": 30,
+            "height": 24,
+            "shape": 5
+          },
+          {
+            "x": 2800,
+            "y": 1780,
+            "radius": 32,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1350,
+            "radius": 29,
+            "height": 23,
+            "shape": 2
+          },
+          {
+            "x": 2050,
+            "y": 2050,
+            "radius": 31,
+            "height": 24,
+            "shape": 3
+          }
+        ]
+      },
+      "5": {
+        "title": "LEVEL 5: OLYMPUS MONS • APEX CALDERA",
+        "subtitle": "The Solar Peak & Final Colonization",
+        "mapWidth": 3600,
+        "mapHeight": 3600,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#050816",
+        "biome": "summit",
+        "objectives": [
+          {
+            "id": "upgrade5",
+            "text": "Visit Apex Engineering Nexus & calibrate Solar Quantum Shielding.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "summitSample",
+            "text": "Gather rare Olivine Crystals from the caldera rim.",
+            "done": false,
+            "pos": {
+              "x": 1800,
+              "y": 1300
+            }
+          },
+          {
+            "id": "quantumArray",
+            "text": "Align Deep Space Quantum Uplink dish to Earth.",
+            "done": false,
+            "pos": {
+              "x": 2600,
+              "y": 1500
+            }
+          },
+          {
+            "id": "colonyDome",
+            "text": "Power up the Primary Colonization Habitat Dome!",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2700
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Apex Engineering Nexus",
+            "x": 900,
+            "y": 900,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Summit Olivine Phenocryst",
+            "x": 1800,
+            "y": 1300,
+            "collected": false,
+            "info": "Ultra-pure green forsteritic olivine formed under extreme pressure and preserved at 21.2 kilometers altitude, where atmospheric pressure is a near-vacuum 0.07 kPa.",
+            "chemicalFormula": "Mg₂SiO₄ + Cr-Spinel",
+            "astroPotential": "MODERATE - High-Altitude Cosmic Radiation Shielding Proxy",
+            "category": "PLUTONIC FORSTERITE",
+            "density": "3.31 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Deep Space Quantum Uplink",
+            "x": 2600,
+            "y": 1500,
+            "visited": false
+          },
+          {
+            "type": "settlement",
+            "name": "Colony Habitat Dome Alpha",
+            "x": 2700,
+            "y": 2700,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 720,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 820,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 620,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1400,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1050,
+            "radius": 38,
+            "height": 30,
+            "shape": 1
+          },
+          {
+            "x": 1650,
+            "y": 1550,
+            "radius": 35,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 1950,
+            "y": 1100,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 36,
+            "height": 29,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 1350,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 2450,
+            "y": 1650,
+            "radius": 34,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2750,
+            "y": 1350,
+            "radius": 30,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 2800,
+            "y": 1700,
+            "radius": 37,
+            "height": 30,
+            "shape": 3
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 33,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2250,
+            "y": 2350,
+            "radius": 35,
+            "height": 28,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2500,
+            "radius": 31,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2550,
+            "radius": 36,
+            "height": 29,
+            "shape": 2
+          },
+          {
+            "x": 2500,
+            "y": 2900,
+            "radius": 32,
+            "height": 26,
+            "shape": 3
+          },
+          {
+            "x": 2850,
+            "y": 2900,
+            "radius": 38,
+            "height": 31,
+            "shape": 4
+          },
+          {
+            "x": 1750,
+            "y": 2200,
+            "radius": 34,
+            "height": 27,
+            "shape": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "a_r_e_s",
+    "name": "A.R.E.S.",
+    "coins": 99999,
+    "pointsSpent": 9999,
+    "totalPointsEarned": 99999,
+    "currentLevelNum": 2,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "lastPlayedAt": "2026-09-27T14:05:45.438Z",
+    "rover": {
+      "x": 350,
+      "y": 350,
+      "vx": 0,
+      "vy": 0,
+      "angle": 0,
+      "speed": 0,
+      "health": 100,
+      "maxHealth": 200,
+      "battery": 100,
+      "solarEff": 100,
+      "dust": 0,
+      "mode": "EXPLORATION",
+      "sciencePoints": 9999,
+      "upgrades": {
+        "duneTreads": false,
+        "iceRadar": false,
+        "stormShield": false,
+        "lavaPlates": false,
+        "quantumUplink": false
+      },
+      "customization": {
+        "skin": "gold",
+        "wheel": "plasma",
+        "light": "cyan",
+        "trail": "cyber"
+      },
+      "unlockedSkins": [
+        "classic",
+        "cyber",
+        "gold",
+        "stealth",
+        "emerald",
+        "hyperion",
+        "aurora",
+        "frostbite"
+      ],
+      "unlockedWheels": [
+        "standard",
+        "spikes",
+        "plasma"
+      ],
+      "unlockedLights": [
+        "cyan",
+        "amber",
+        "crimson",
+        "violet"
+      ],
+      "unlockedTrails": [
+        "none",
+        "dust",
+        "cyber"
+      ],
+      "coins": 99999,
+      "pointsSpent": 9999,
+      "totalPointsEarned": 99999,
+      "tunedSpeedLevel": 5,
+      "tunedArmorLevel": 5,
+      "tunedBatteryLevel": 5,
+      "tunedSolarLevel": 5,
+      "headlightsOn": true,
+      "steering": 0
+    },
+    "discoveries": [],
+    "levels": {
+      "1": {
+        "title": "LEVEL 1: VALLES MARINERIS • MELAS CHASMA",
+        "subtitle": "Melas Chasma Basalt Bedrock Exploration",
+        "mapWidth": 2200,
+        "mapHeight": 2200,
+        "startPos": {
+          "x": 400,
+          "y": 400
+        },
+        "bg": "#9E2A1B",
+        "biome": "basalt",
+        "objectives": [
+          {
+            "id": "move",
+            "text": "Leave capsule zone and enter Melas Chasma canyon floor.",
+            "done": false
+          },
+          {
+            "id": "upgrade1",
+            "text": "Visit Workshop Station & complete Gear Traction Minigame.",
+            "done": false,
+            "pos": {
+              "x": 800,
+              "y": 800
+            }
+          },
+          {
+            "id": "sample1",
+            "text": "Drill & collect Noachian basalt bedrock core.",
+            "done": false,
+            "pos": {
+              "x": 1200,
+              "y": 650
+            }
+          },
+          {
+            "id": "transmit",
+            "text": "Transmit canyon data to Earth relay.",
+            "done": false,
+            "pos": {
+              "x": 1600,
+              "y": 1600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Melas Engineering Station Alpha",
+            "x": 800,
+            "y": 800,
+            "minigame": 1,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Melas Basalt Bedrock Core",
+            "x": 1200,
+            "y": 650,
+            "collected": false,
+            "info": "Tholeiitic basalt bedrock rich in pyroxene, plagioclase, and magnesium-rich olivine. Represents primordial Noachian planetary crust exposed by monumental tectonic rifting.",
+            "chemicalFormula": "(Mg,Fe)₂SiO₄ + CaAl₂Si₂O₈",
+            "astroPotential": "MODERATE - Radiolytic Hydrogen Energy for Subsurface Microbes",
+            "category": "THOLEIITIC BASALT CRUST",
+            "density": "3.08 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Earth Antenna Relay",
+            "x": 1600,
+            "y": 1600,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 550,
+            "y": 420,
+            "radius": 24,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 620,
+            "y": 700,
+            "radius": 30,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 520,
+            "radius": 22,
+            "height": 16,
+            "shape": 3
+          },
+          {
+            "x": 950,
+            "y": 620,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1050,
+            "y": 880,
+            "radius": 28,
+            "height": 20,
+            "shape": 5
+          },
+          {
+            "x": 1120,
+            "y": 520,
+            "radius": 26,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1350,
+            "y": 720,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1420,
+            "y": 950,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1550,
+            "y": 1250,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1400,
+            "radius": 25,
+            "height": 18,
+            "shape": 5
+          },
+          {
+            "x": 1100,
+            "y": 1550,
+            "radius": 30,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 850,
+            "y": 1300,
+            "radius": 27,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 680,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 500,
+            "y": 1250,
+            "radius": 26,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 600,
+            "y": 1600,
+            "radius": 35,
+            "height": 27,
+            "shape": 5
+          },
+          {
+            "x": 850,
+            "y": 1750,
+            "radius": 29,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1400,
+            "y": 1750,
+            "radius": 33,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1450,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1800,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1650,
+            "y": 1900,
+            "radius": 26,
+            "height": 18,
+            "shape": 5
+          }
+        ]
+      },
+      "2": {
+        "title": "LEVEL 2: JEZERO CRATER • NERETVA VALLIS",
+        "subtitle": "Ancient Paleolake Delta & Barchan Dunes",
+        "mapWidth": 2600,
+        "mapHeight": 2600,
+        "startPos": {
+          "x": 350,
+          "y": 350
+        },
+        "bg": "#E67E22",
+        "biome": "dunes",
+        "objectives": [
+          {
+            "id": "upgrade2",
+            "text": "Visit Dune Workshop & complete Wave Radar Minigame.",
+            "done": false,
+            "pos": {
+              "x": 850,
+              "y": 850
+            }
+          },
+          {
+            "id": "radarIce",
+            "text": "Use Ice Radar (SPACE) near ancient paleolake bed to scan subsurface ice.",
+            "done": false,
+            "pos": {
+              "x": 1450,
+              "y": 1250
+            }
+          },
+          {
+            "id": "reachTower",
+            "text": "Reach high delta rim comm tower.",
+            "done": false,
+            "pos": {
+              "x": 2200,
+              "y": 2100
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Neretva Workshop Relay",
+            "x": 850,
+            "y": 850,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "ice",
+            "name": "Neretva Subsurface Permafrost Ice",
+            "x": 1450,
+            "y": 1250,
+            "scanned": false,
+            "info": "Glacial cryo-lens buried 0.4m beneath fine aeolian quartz-silt. Formed during the late Hesperian lacustrine drying phase; contains preserved ancient water molecules.",
+            "chemicalFormula": "H₂O(s) + CO₂(s) Hydrate Matrix",
+            "astroPotential": "CRITICAL - Preserved Paleolake Micro-Biosignatures",
+            "category": "LACUSTRINE CRYOSPHERE",
+            "density": "0.94 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Jezero Delta Comm Tower",
+            "x": 2200,
+            "y": 2100,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 480,
+            "radius": 25,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 680,
+            "y": 380,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 680,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1020,
+            "y": 720,
+            "radius": 35,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1180,
+            "y": 920,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1300,
+            "y": 1100,
+            "radius": 27,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1600,
+            "y": 1180,
+            "radius": 34,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1350,
+            "y": 1380,
+            "radius": 29,
+            "height": 21,
+            "shape": 3
+          },
+          {
+            "x": 1200,
+            "y": 1600,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 950,
+            "y": 1450,
+            "radius": 24,
+            "height": 17,
+            "shape": 5
+          },
+          {
+            "x": 780,
+            "y": 1700,
+            "radius": 31,
+            "height": 23,
+            "shape": 1
+          },
+          {
+            "x": 1050,
+            "y": 1900,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 1450,
+            "y": 1850,
+            "radius": 33,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 1700,
+            "y": 1600,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1900,
+            "y": 1400,
+            "radius": 26,
+            "height": 19,
+            "shape": 5
+          },
+          {
+            "x": 1850,
+            "y": 1850,
+            "radius": 35,
+            "height": 26,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1950,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 2350,
+            "y": 1950,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 2250,
+            "radius": 27,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 2250,
+            "radius": 34,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "3": {
+        "title": "LEVEL 3: PLANUM BOREUM • CHASMA BOREALE",
+        "subtitle": "Glacial Permafrost & Elysium Volcanic Ridge",
+        "mapWidth": 3200,
+        "mapHeight": 3200,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#080F1E",
+        "biome": "ice",
+        "objectives": [
+          {
+            "id": "upgrade3",
+            "text": "Visit Glacier Workshop & complete Shield Circuit Minigame.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "volcanoScan",
+            "text": "Scan geothermal magma vent for sub-ice heat.",
+            "done": false,
+            "pos": {
+              "x": 1900,
+              "y": 1600
+            }
+          },
+          {
+            "id": "markSettlement",
+            "text": "Mark future human settlement dome site.",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Chasma Boreale Shield Workshop",
+            "x": 900,
+            "y": 900,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Chasma Boreale Geothermal Magma Vent",
+            "x": 1900,
+            "y": 1600,
+            "collected": false,
+            "info": "Sub-glacial volcanic fumarole venting sulfurous compounds and hydrothermal water vapor into glacial crevasses. A prime candidate for geothermal power and sub-ice habitats.",
+            "chemicalFormula": "H₂S + SO₂ + FeS₂ + H₂O(v)",
+            "astroPotential": "EXTREME - Chemoautotrophic Thermophilic Colony Ecosystem",
+            "category": "SUBGLACIAL HYDROTHERMAL",
+            "density": "2.84 g/cm³"
+          },
+          {
+            "type": "settlement",
+            "name": "Planum Boreum Settlement Zone Alpha",
+            "x": 2700,
+            "y": 2600,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 750,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 750,
+            "radius": 30,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 1050,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1450,
+            "y": 880,
+            "radius": 29,
+            "height": 21,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1150,
+            "radius": 33,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 1550,
+            "y": 1450,
+            "radius": 38,
+            "height": 30,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1750,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 35,
+            "height": 27,
+            "shape": 4
+          },
+          {
+            "x": 2150,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1950,
+            "y": 2050,
+            "radius": 28,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 2250,
+            "y": 2150,
+            "radius": 36,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 31,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 2500,
+            "y": 2350,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2850,
+            "y": 2400,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2750,
+            "radius": 35,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2800,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1400,
+            "y": 1900,
+            "radius": 37,
+            "height": 29,
+            "shape": 3
+          },
+          {
+            "x": 1100,
+            "y": 1800,
+            "radius": 29,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1000,
+            "y": 1400,
+            "radius": 33,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "4": {
+        "title": "LEVEL 4: CERBERUS FOSSAE • ATHABASCA RIFT",
+        "subtitle": "Molten Magma Lakes & Basalt Bridges",
+        "mapWidth": 3400,
+        "mapHeight": 3400,
+        "startPos": {
+          "x": 350,
+          "y": 1700
+        },
+        "bg": "#140300",
+        "biome": "lava",
+        "objectives": [
+          {
+            "id": "upgrade4",
+            "text": "Visit Lava Forge Workshop & install Thermal Dampers.",
+            "done": false,
+            "pos": {
+              "x": 1000,
+              "y": 1700
+            }
+          },
+          {
+            "id": "crossChasm",
+            "text": "Cross Basalt Bridge over lava lake to Central Core Island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "magmaSample",
+            "text": "Extract Superheated Pyroxene crystal from core island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "geoGenerator",
+            "text": "Cross South Causeway to activate Geothermal Power Generator.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 2400
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Athabasca Lava Forge Workshop",
+            "x": 1000,
+            "y": 1700,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Athabasca Superheated Pyroxene Crystal",
+            "x": 1700,
+            "y": 1700,
+            "collected": false,
+            "info": "High-pressure clinopyroxene single crystal extracted from late Amazonian fissure lava. Formed in magma chambers at 1200°C; demonstrates deep Martian mantle convection dynamics.",
+            "chemicalFormula": "Ca(Mg,Fe)Si₂O₆ (Augite Matrix)",
+            "astroPotential": "LOW - High-Temperature Abiotic Igneous Melt",
+            "category": "MANTLE PYROXENE CRYSTAL",
+            "density": "3.42 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Athabasca Geothermal Generator",
+            "x": 1700,
+            "y": 2400,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "North Volcanic Fissure Vent",
+            "x": 1700,
+            "y": 1000,
+            "collected": false,
+            "info": "Elemental sulfur-encrusted chimney venting gaseous HCl, SO₂, and superheated volcanic steam.",
+            "chemicalFormula": "S₈ + FeS₂ + HCl",
+            "astroPotential": "MODERATE - Acidophilic Prebiotic Synthesis",
+            "category": "VOLCANIC SUBLIMATE",
+            "density": "2.07 g/cm³"
+          }
+        ],
+        "lavaZones": [
+          {
+            "x": 600,
+            "y": 600,
+            "width": 2200,
+            "height": 2200
+          }
+        ],
+        "lavaPaths": [
+          {
+            "type": "segment",
+            "x1": 250,
+            "y1": 1700,
+            "x2": 1000,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "island",
+            "cx": 1000,
+            "cy": 1700,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1000,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1700,
+            "width": 115
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1700,
+            "radius": 150
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1000,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1000,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 2400,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 2400,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 110
+          },
+          {
+            "type": "island",
+            "cx": 2400,
+            "cy": 1700,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 2400,
+            "y1": 1700,
+            "x2": 3150,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1000,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 2400,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 1620,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 520,
+            "y": 1780,
+            "radius": 28,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 920,
+            "y": 1610,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1080,
+            "y": 1790,
+            "radius": 27,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1450,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 1610,
+            "y": 1610,
+            "radius": 24,
+            "height": 18,
+            "shape": 2
+          },
+          {
+            "x": 1790,
+            "y": 1790,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1620,
+            "y": 1350,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 1780,
+            "y": 1180,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1610,
+            "y": 2100,
+            "radius": 27,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1790,
+            "y": 2250,
+            "radius": 25,
+            "height": 19,
+            "shape": 2
+          },
+          {
+            "x": 2100,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 3
+          },
+          {
+            "x": 2250,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 2600,
+            "y": 1620,
+            "radius": 30,
+            "height": 24,
+            "shape": 5
+          },
+          {
+            "x": 2800,
+            "y": 1780,
+            "radius": 32,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1350,
+            "radius": 29,
+            "height": 23,
+            "shape": 2
+          },
+          {
+            "x": 2050,
+            "y": 2050,
+            "radius": 31,
+            "height": 24,
+            "shape": 3
+          }
+        ]
+      },
+      "5": {
+        "title": "LEVEL 5: OLYMPUS MONS • APEX CALDERA",
+        "subtitle": "The Solar Peak & Final Colonization",
+        "mapWidth": 3600,
+        "mapHeight": 3600,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#050816",
+        "biome": "summit",
+        "objectives": [
+          {
+            "id": "upgrade5",
+            "text": "Visit Apex Engineering Nexus & calibrate Solar Quantum Shielding.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "summitSample",
+            "text": "Gather rare Olivine Crystals from the caldera rim.",
+            "done": false,
+            "pos": {
+              "x": 1800,
+              "y": 1300
+            }
+          },
+          {
+            "id": "quantumArray",
+            "text": "Align Deep Space Quantum Uplink dish to Earth.",
+            "done": false,
+            "pos": {
+              "x": 2600,
+              "y": 1500
+            }
+          },
+          {
+            "id": "colonyDome",
+            "text": "Power up the Primary Colonization Habitat Dome!",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2700
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Apex Engineering Nexus",
+            "x": 900,
+            "y": 900,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Summit Olivine Phenocryst",
+            "x": 1800,
+            "y": 1300,
+            "collected": false,
+            "info": "Ultra-pure green forsteritic olivine formed under extreme pressure and preserved at 21.2 kilometers altitude, where atmospheric pressure is a near-vacuum 0.07 kPa.",
+            "chemicalFormula": "Mg₂SiO₄ + Cr-Spinel",
+            "astroPotential": "MODERATE - High-Altitude Cosmic Radiation Shielding Proxy",
+            "category": "PLUTONIC FORSTERITE",
+            "density": "3.31 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Deep Space Quantum Uplink",
+            "x": 2600,
+            "y": 1500,
+            "visited": false
+          },
+          {
+            "type": "settlement",
+            "name": "Colony Habitat Dome Alpha",
+            "x": 2700,
+            "y": 2700,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 720,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 820,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 620,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1400,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1050,
+            "radius": 38,
+            "height": 30,
+            "shape": 1
+          },
+          {
+            "x": 1650,
+            "y": 1550,
+            "radius": 35,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 1950,
+            "y": 1100,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 36,
+            "height": 29,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 1350,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 2450,
+            "y": 1650,
+            "radius": 34,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2750,
+            "y": 1350,
+            "radius": 30,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 2800,
+            "y": 1700,
+            "radius": 37,
+            "height": 30,
+            "shape": 3
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 33,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2250,
+            "y": 2350,
+            "radius": 35,
+            "height": 28,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2500,
+            "radius": 31,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2550,
+            "radius": 36,
+            "height": 29,
+            "shape": 2
+          },
+          {
+            "x": 2500,
+            "y": 2900,
+            "radius": 32,
+            "height": 26,
+            "shape": 3
+          },
+          {
+            "x": 2850,
+            "y": 2900,
+            "radius": 38,
+            "height": 31,
+            "shape": 4
+          },
+          {
+            "x": 1750,
+            "y": 2200,
+            "radius": 34,
+            "height": 27,
+            "shape": 5
+          }
+        ]
+      }
+    },
+    "hasPasscode": false,
+    "passcode": ""
+  },
+  {
+    "id": "ayaan_aneesh",
+    "name": "ayaan aneesh",
+    "hasPasscode": false,
+    "coins": 1040,
+    "pointsSpent": 0,
+    "totalPointsEarned": 100,
+    "currentLevelNum": 1,
+    "createdAt": "2026-09-25T15:07:40.078Z",
+    "lastPlayedAt": "2026-09-27T14:08:05.627Z",
+    "rover": {
+      "x": 1579.554449023952,
+      "y": 1515.6000050700352,
+      "vx": 8.191945927611601e-11,
+      "vy": 3.856608623230754e-11,
+      "angle": 0.43999999999999984,
+      "speed": 9.05435851696243e-11,
+      "health": 100,
+      "maxHealth": 100,
+      "battery": 97.12124109999738,
+      "solarEff": 94.43800000000002,
+      "dust": 5.561999999999989,
+      "mode": "EXPLORATION",
+      "sciencePoints": 640,
+      "upgrades": {
+        "duneTreads": true,
+        "iceRadar": false,
+        "stormShield": false,
+        "lavaPlates": false,
+        "quantumUplink": false
+      },
+      "customization": {
+        "skin": "classic",
+        "wheel": "standard",
+        "light": "cyan",
+        "trail": "dust"
+      },
+      "unlockedSkins": [
+        "classic"
+      ],
+      "unlockedWheels": [
+        "standard"
+      ],
+      "unlockedLights": [
+        "cyan"
+      ],
+      "unlockedTrails": [
+        "none",
+        "dust"
+      ],
+      "coins": 1040,
+      "pointsSpent": 0,
+      "totalPointsEarned": 100,
+      "tunedSpeedLevel": 0,
+      "tunedArmorLevel": 0,
+      "tunedBatteryLevel": 0,
+      "tunedSolarLevel": 0,
+      "headlightsOn": true,
+      "steering": 0
+    },
+    "discoveries": [
+      {
+        "title": "Melas Basalt Bedrock Core",
+        "desc": "Tholeiitic basalt bedrock rich in pyroxene, plagioclase, and magnesium-rich olivine. Represents primordial Noachian planetary crust exposed by monumental tectonic rifting.",
+        "coords": "1188, 654",
+        "temp": "-62°C"
+      }
+    ],
+    "levels": {
+      "1": {
+        "title": "LEVEL 1: VALLES MARINERIS • MELAS CHASMA",
+        "subtitle": "Melas Chasma Basalt Bedrock Exploration",
+        "mapWidth": 2200,
+        "mapHeight": 2200,
+        "startPos": {
+          "x": 400,
+          "y": 400
+        },
+        "bg": "#9E2A1B",
+        "biome": "basalt",
+        "objectives": [
+          {
+            "id": "move",
+            "text": "Leave capsule zone and enter Melas Chasma canyon floor.",
+            "done": true
+          },
+          {
+            "id": "upgrade1",
+            "text": "Visit Workshop Station & complete Gear Traction Minigame.",
+            "done": true,
+            "pos": {
+              "x": 800,
+              "y": 800
+            }
+          },
+          {
+            "id": "sample1",
+            "text": "Drill & collect Noachian basalt bedrock core.",
+            "done": true,
+            "pos": {
+              "x": 1200,
+              "y": 650
+            }
+          },
+          {
+            "id": "transmit",
+            "text": "Transmit canyon data to Earth relay.",
+            "done": false,
+            "pos": {
+              "x": 1600,
+              "y": 1600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Melas Engineering Station Alpha",
+            "x": 800,
+            "y": 800,
+            "minigame": 1,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Melas Basalt Bedrock Core",
+            "x": 1200,
+            "y": 650,
+            "collected": true,
+            "info": "Tholeiitic basalt bedrock rich in pyroxene, plagioclase, and magnesium-rich olivine. Represents primordial Noachian planetary crust exposed by monumental tectonic rifting.",
+            "chemicalFormula": "(Mg,Fe)₂SiO₄ + CaAl₂Si₂O₈",
+            "astroPotential": "MODERATE - Radiolytic Hydrogen Energy for Subsurface Microbes",
+            "category": "THOLEIITIC BASALT CRUST",
+            "density": "3.08 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Earth Antenna Relay",
+            "x": 1600,
+            "y": 1600,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 550,
+            "y": 420,
+            "radius": 24,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 620,
+            "y": 700,
+            "radius": 30,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 520,
+            "radius": 22,
+            "height": 16,
+            "shape": 3
+          },
+          {
+            "x": 950,
+            "y": 620,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1050,
+            "y": 880,
+            "radius": 28,
+            "height": 20,
+            "shape": 5
+          },
+          {
+            "x": 1120,
+            "y": 520,
+            "radius": 26,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1350,
+            "y": 720,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1420,
+            "y": 950,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1550,
+            "y": 1250,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1400,
+            "radius": 25,
+            "height": 18,
+            "shape": 5
+          },
+          {
+            "x": 1100,
+            "y": 1550,
+            "radius": 30,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 850,
+            "y": 1300,
+            "radius": 27,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 680,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 500,
+            "y": 1250,
+            "radius": 26,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 600,
+            "y": 1600,
+            "radius": 35,
+            "height": 27,
+            "shape": 5
+          },
+          {
+            "x": 850,
+            "y": 1750,
+            "radius": 29,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1400,
+            "y": 1750,
+            "radius": 33,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1450,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1800,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1650,
+            "y": 1900,
+            "radius": 26,
+            "height": 18,
+            "shape": 5
+          }
+        ]
+      },
+      "2": {
+        "title": "LEVEL 2: JEZERO CRATER • NERETVA VALLIS",
+        "subtitle": "Ancient Paleolake Delta & Barchan Dunes",
+        "mapWidth": 2600,
+        "mapHeight": 2600,
+        "startPos": {
+          "x": 350,
+          "y": 350
+        },
+        "bg": "#E67E22",
+        "biome": "dunes",
+        "objectives": [
+          {
+            "id": "upgrade2",
+            "text": "Visit Dune Workshop & complete Wave Radar Minigame.",
+            "done": false,
+            "pos": {
+              "x": 850,
+              "y": 850
+            }
+          },
+          {
+            "id": "radarIce",
+            "text": "Use Ice Radar (SPACE) near ancient paleolake bed to scan subsurface ice.",
+            "done": false,
+            "pos": {
+              "x": 1450,
+              "y": 1250
+            }
+          },
+          {
+            "id": "reachTower",
+            "text": "Reach high delta rim comm tower.",
+            "done": false,
+            "pos": {
+              "x": 2200,
+              "y": 2100
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Neretva Workshop Relay",
+            "x": 850,
+            "y": 850,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "ice",
+            "name": "Neretva Subsurface Permafrost Ice",
+            "x": 1450,
+            "y": 1250,
+            "scanned": false,
+            "info": "Glacial cryo-lens buried 0.4m beneath fine aeolian quartz-silt. Formed during the late Hesperian lacustrine drying phase; contains preserved ancient water molecules.",
+            "chemicalFormula": "H₂O(s) + CO₂(s) Hydrate Matrix",
+            "astroPotential": "CRITICAL - Preserved Paleolake Micro-Biosignatures",
+            "category": "LACUSTRINE CRYOSPHERE",
+            "density": "0.94 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Jezero Delta Comm Tower",
+            "x": 2200,
+            "y": 2100,
+            "visited": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 480,
+            "radius": 25,
+            "height": 18,
+            "shape": 1
+          },
+          {
+            "x": 680,
+            "y": 380,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 720,
+            "y": 680,
+            "radius": 28,
+            "height": 20,
+            "shape": 3
+          },
+          {
+            "x": 1020,
+            "y": 720,
+            "radius": 35,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 1180,
+            "y": 920,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1300,
+            "y": 1100,
+            "radius": 27,
+            "height": 19,
+            "shape": 1
+          },
+          {
+            "x": 1600,
+            "y": 1180,
+            "radius": 34,
+            "height": 25,
+            "shape": 2
+          },
+          {
+            "x": 1350,
+            "y": 1380,
+            "radius": 29,
+            "height": 21,
+            "shape": 3
+          },
+          {
+            "x": 1200,
+            "y": 1600,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 950,
+            "y": 1450,
+            "radius": 24,
+            "height": 17,
+            "shape": 5
+          },
+          {
+            "x": 780,
+            "y": 1700,
+            "radius": 31,
+            "height": 23,
+            "shape": 1
+          },
+          {
+            "x": 1050,
+            "y": 1900,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 1450,
+            "y": 1850,
+            "radius": 33,
+            "height": 25,
+            "shape": 3
+          },
+          {
+            "x": 1700,
+            "y": 1600,
+            "radius": 30,
+            "height": 22,
+            "shape": 4
+          },
+          {
+            "x": 1900,
+            "y": 1400,
+            "radius": 26,
+            "height": 19,
+            "shape": 5
+          },
+          {
+            "x": 1850,
+            "y": 1850,
+            "radius": 35,
+            "height": 26,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1950,
+            "radius": 28,
+            "height": 20,
+            "shape": 2
+          },
+          {
+            "x": 2350,
+            "y": 1950,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 2250,
+            "radius": 27,
+            "height": 19,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 2250,
+            "radius": 34,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "3": {
+        "title": "LEVEL 3: PLANUM BOREUM • CHASMA BOREALE",
+        "subtitle": "Glacial Permafrost & Elysium Volcanic Ridge",
+        "mapWidth": 3200,
+        "mapHeight": 3200,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#080F1E",
+        "biome": "ice",
+        "objectives": [
+          {
+            "id": "upgrade3",
+            "text": "Visit Glacier Workshop & complete Shield Circuit Minigame.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "volcanoScan",
+            "text": "Scan geothermal magma vent for sub-ice heat.",
+            "done": false,
+            "pos": {
+              "x": 1900,
+              "y": 1600
+            }
+          },
+          {
+            "id": "markSettlement",
+            "text": "Mark future human settlement dome site.",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2600
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Chasma Boreale Shield Workshop",
+            "x": 900,
+            "y": 900,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Chasma Boreale Geothermal Magma Vent",
+            "x": 1900,
+            "y": 1600,
+            "collected": false,
+            "info": "Sub-glacial volcanic fumarole venting sulfurous compounds and hydrothermal water vapor into glacial crevasses. A prime candidate for geothermal power and sub-ice habitats.",
+            "chemicalFormula": "H₂S + SO₂ + FeS₂ + H₂O(v)",
+            "astroPotential": "EXTREME - Chemoautotrophic Thermophilic Colony Ecosystem",
+            "category": "SUBGLACIAL HYDROTHERMAL",
+            "density": "2.84 g/cm³"
+          },
+          {
+            "type": "settlement",
+            "name": "Planum Boreum Settlement Zone Alpha",
+            "x": 2700,
+            "y": 2600,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 750,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 750,
+            "radius": 30,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 1050,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1450,
+            "y": 880,
+            "radius": 29,
+            "height": 21,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1150,
+            "radius": 33,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 1550,
+            "y": 1450,
+            "radius": 38,
+            "height": 30,
+            "shape": 2
+          },
+          {
+            "x": 1750,
+            "y": 1750,
+            "radius": 32,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 35,
+            "height": 27,
+            "shape": 4
+          },
+          {
+            "x": 2150,
+            "y": 1750,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1950,
+            "y": 2050,
+            "radius": 28,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 2250,
+            "y": 2150,
+            "radius": 36,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 31,
+            "height": 23,
+            "shape": 3
+          },
+          {
+            "x": 2500,
+            "y": 2350,
+            "radius": 34,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2850,
+            "y": 2400,
+            "radius": 30,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2750,
+            "radius": 35,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2800,
+            "radius": 32,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 1400,
+            "y": 1900,
+            "radius": 37,
+            "height": 29,
+            "shape": 3
+          },
+          {
+            "x": 1100,
+            "y": 1800,
+            "radius": 29,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1000,
+            "y": 1400,
+            "radius": 33,
+            "height": 25,
+            "shape": 5
+          }
+        ]
+      },
+      "4": {
+        "title": "LEVEL 4: CERBERUS FOSSAE • ATHABASCA RIFT",
+        "subtitle": "Molten Magma Lakes & Basalt Bridges",
+        "mapWidth": 3400,
+        "mapHeight": 3400,
+        "startPos": {
+          "x": 350,
+          "y": 1700
+        },
+        "bg": "#140300",
+        "biome": "lava",
+        "objectives": [
+          {
+            "id": "upgrade4",
+            "text": "Visit Lava Forge Workshop & install Thermal Dampers.",
+            "done": false,
+            "pos": {
+              "x": 1000,
+              "y": 1700
+            }
+          },
+          {
+            "id": "crossChasm",
+            "text": "Cross Basalt Bridge over lava lake to Central Core Island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "magmaSample",
+            "text": "Extract Superheated Pyroxene crystal from core island.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 1700
+            }
+          },
+          {
+            "id": "geoGenerator",
+            "text": "Cross South Causeway to activate Geothermal Power Generator.",
+            "done": false,
+            "pos": {
+              "x": 1700,
+              "y": 2400
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Athabasca Lava Forge Workshop",
+            "x": 1000,
+            "y": 1700,
+            "minigame": 3,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Athabasca Superheated Pyroxene Crystal",
+            "x": 1700,
+            "y": 1700,
+            "collected": false,
+            "info": "High-pressure clinopyroxene single crystal extracted from late Amazonian fissure lava. Formed in magma chambers at 1200°C; demonstrates deep Martian mantle convection dynamics.",
+            "chemicalFormula": "Ca(Mg,Fe)Si₂O₆ (Augite Matrix)",
+            "astroPotential": "LOW - High-Temperature Abiotic Igneous Melt",
+            "category": "MANTLE PYROXENE CRYSTAL",
+            "density": "3.42 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Athabasca Geothermal Generator",
+            "x": 1700,
+            "y": 2400,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "North Volcanic Fissure Vent",
+            "x": 1700,
+            "y": 1000,
+            "collected": false,
+            "info": "Elemental sulfur-encrusted chimney venting gaseous HCl, SO₂, and superheated volcanic steam.",
+            "chemicalFormula": "S₈ + FeS₂ + HCl",
+            "astroPotential": "MODERATE - Acidophilic Prebiotic Synthesis",
+            "category": "VOLCANIC SUBLIMATE",
+            "density": "2.07 g/cm³"
+          }
+        ],
+        "lavaZones": [
+          {
+            "x": 600,
+            "y": 600,
+            "width": 2200,
+            "height": 2200
+          }
+        ],
+        "lavaPaths": [
+          {
+            "type": "segment",
+            "x1": 250,
+            "y1": 1700,
+            "x2": 1000,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "island",
+            "cx": 1000,
+            "cy": 1700,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1000,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1700,
+            "width": 115
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1700,
+            "radius": 150
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 1000,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 1000,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 1700,
+            "y2": 2400,
+            "width": 105
+          },
+          {
+            "type": "island",
+            "cx": 1700,
+            "cy": 2400,
+            "radius": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1700,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 110
+          },
+          {
+            "type": "island",
+            "cx": 2400,
+            "cy": 1700,
+            "radius": 120
+          },
+          {
+            "type": "segment",
+            "x1": 2400,
+            "y1": 1700,
+            "x2": 3150,
+            "y2": 1700,
+            "width": 130
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 1000,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          },
+          {
+            "type": "segment",
+            "x1": 1700,
+            "y1": 2400,
+            "x2": 2400,
+            "y2": 1700,
+            "width": 95
+          }
+        ],
+        "rocks": [
+          {
+            "x": 500,
+            "y": 1620,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 520,
+            "y": 1780,
+            "radius": 28,
+            "height": 22,
+            "shape": 2
+          },
+          {
+            "x": 920,
+            "y": 1610,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1080,
+            "y": 1790,
+            "radius": 27,
+            "height": 21,
+            "shape": 4
+          },
+          {
+            "x": 1300,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1450,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 1
+          },
+          {
+            "x": 1610,
+            "y": 1610,
+            "radius": 24,
+            "height": 18,
+            "shape": 2
+          },
+          {
+            "x": 1790,
+            "y": 1790,
+            "radius": 25,
+            "height": 19,
+            "shape": 3
+          },
+          {
+            "x": 1620,
+            "y": 1350,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 1780,
+            "y": 1180,
+            "radius": 28,
+            "height": 22,
+            "shape": 5
+          },
+          {
+            "x": 1610,
+            "y": 2100,
+            "radius": 27,
+            "height": 21,
+            "shape": 1
+          },
+          {
+            "x": 1790,
+            "y": 2250,
+            "radius": 25,
+            "height": 19,
+            "shape": 2
+          },
+          {
+            "x": 2100,
+            "y": 1620,
+            "radius": 28,
+            "height": 22,
+            "shape": 3
+          },
+          {
+            "x": 2250,
+            "y": 1780,
+            "radius": 26,
+            "height": 20,
+            "shape": 4
+          },
+          {
+            "x": 2600,
+            "y": 1620,
+            "radius": 30,
+            "height": 24,
+            "shape": 5
+          },
+          {
+            "x": 2800,
+            "y": 1780,
+            "radius": 32,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2050,
+            "y": 1350,
+            "radius": 29,
+            "height": 23,
+            "shape": 2
+          },
+          {
+            "x": 2050,
+            "y": 2050,
+            "radius": 31,
+            "height": 24,
+            "shape": 3
+          }
+        ]
+      },
+      "5": {
+        "title": "LEVEL 5: OLYMPUS MONS • APEX CALDERA",
+        "subtitle": "The Solar Peak & Final Colonization",
+        "mapWidth": 3600,
+        "mapHeight": 3600,
+        "startPos": {
+          "x": 450,
+          "y": 450
+        },
+        "bg": "#050816",
+        "biome": "summit",
+        "objectives": [
+          {
+            "id": "upgrade5",
+            "text": "Visit Apex Engineering Nexus & calibrate Solar Quantum Shielding.",
+            "done": false,
+            "pos": {
+              "x": 900,
+              "y": 900
+            }
+          },
+          {
+            "id": "summitSample",
+            "text": "Gather rare Olivine Crystals from the caldera rim.",
+            "done": false,
+            "pos": {
+              "x": 1800,
+              "y": 1300
+            }
+          },
+          {
+            "id": "quantumArray",
+            "text": "Align Deep Space Quantum Uplink dish to Earth.",
+            "done": false,
+            "pos": {
+              "x": 2600,
+              "y": 1500
+            }
+          },
+          {
+            "id": "colonyDome",
+            "text": "Power up the Primary Colonization Habitat Dome!",
+            "done": false,
+            "pos": {
+              "x": 2700,
+              "y": 2700
+            }
+          }
+        ],
+        "targets": [
+          {
+            "type": "station",
+            "name": "Apex Engineering Nexus",
+            "x": 900,
+            "y": 900,
+            "minigame": 2,
+            "visited": false
+          },
+          {
+            "type": "sample",
+            "name": "Summit Olivine Phenocryst",
+            "x": 1800,
+            "y": 1300,
+            "collected": false,
+            "info": "Ultra-pure green forsteritic olivine formed under extreme pressure and preserved at 21.2 kilometers altitude, where atmospheric pressure is a near-vacuum 0.07 kPa.",
+            "chemicalFormula": "Mg₂SiO₄ + Cr-Spinel",
+            "astroPotential": "MODERATE - High-Altitude Cosmic Radiation Shielding Proxy",
+            "category": "PLUTONIC FORSTERITE",
+            "density": "3.31 g/cm³"
+          },
+          {
+            "type": "relay",
+            "name": "Deep Space Quantum Uplink",
+            "x": 2600,
+            "y": 1500,
+            "visited": false
+          },
+          {
+            "type": "settlement",
+            "name": "Colony Habitat Dome Alpha",
+            "x": 2700,
+            "y": 2700,
+            "marked": false
+          }
+        ],
+        "rocks": [
+          {
+            "x": 650,
+            "y": 550,
+            "radius": 28,
+            "height": 22,
+            "shape": 1
+          },
+          {
+            "x": 720,
+            "y": 780,
+            "radius": 34,
+            "height": 26,
+            "shape": 2
+          },
+          {
+            "x": 1100,
+            "y": 820,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 1250,
+            "y": 620,
+            "radius": 36,
+            "height": 28,
+            "shape": 4
+          },
+          {
+            "x": 1400,
+            "y": 1100,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 1650,
+            "y": 1050,
+            "radius": 38,
+            "height": 30,
+            "shape": 1
+          },
+          {
+            "x": 1650,
+            "y": 1550,
+            "radius": 35,
+            "height": 28,
+            "shape": 2
+          },
+          {
+            "x": 1950,
+            "y": 1100,
+            "radius": 30,
+            "height": 24,
+            "shape": 3
+          },
+          {
+            "x": 2050,
+            "y": 1450,
+            "radius": 36,
+            "height": 29,
+            "shape": 4
+          },
+          {
+            "x": 2350,
+            "y": 1350,
+            "radius": 32,
+            "height": 25,
+            "shape": 5
+          },
+          {
+            "x": 2450,
+            "y": 1650,
+            "radius": 34,
+            "height": 27,
+            "shape": 1
+          },
+          {
+            "x": 2750,
+            "y": 1350,
+            "radius": 30,
+            "height": 24,
+            "shape": 2
+          },
+          {
+            "x": 2800,
+            "y": 1700,
+            "radius": 37,
+            "height": 30,
+            "shape": 3
+          },
+          {
+            "x": 2450,
+            "y": 2050,
+            "radius": 33,
+            "height": 26,
+            "shape": 4
+          },
+          {
+            "x": 2250,
+            "y": 2350,
+            "radius": 35,
+            "height": 28,
+            "shape": 5
+          },
+          {
+            "x": 2550,
+            "y": 2500,
+            "radius": 31,
+            "height": 25,
+            "shape": 1
+          },
+          {
+            "x": 2850,
+            "y": 2550,
+            "radius": 36,
+            "height": 29,
+            "shape": 2
+          },
+          {
+            "x": 2500,
+            "y": 2900,
+            "radius": 32,
+            "height": 26,
+            "shape": 3
+          },
+          {
+            "x": 2850,
+            "y": 2900,
+            "radius": 38,
+            "height": 31,
+            "shape": 4
+          },
+          {
+            "x": 1750,
+            "y": 2200,
+            "radius": 34,
+            "height": 27,
+            "shape": 5
+          }
+        ]
+      }
+    },
+    "passcode": ""
+  }
+]
